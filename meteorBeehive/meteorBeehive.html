@@ -1,0 +1,61 @@
+<template name="layout">
+    <body>
+    <div class="container">
+        <br>
+        <h1>Beehive Data Form</h1>
+        <hr>
+
+        {{> yield}}
+    </div>
+    </body>
+</template>
+
+<template name="form">
+    <div class="row">
+        <div class="col-xs-4">
+            <form>
+                <fieldset class="form-group">
+                    <label for="hiveID">Hive ID:</label>
+                    <input type="text" name="hiveID" class="form-control input-lg" required/>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="collectionDate">Collection Date:</label>
+                    <input type="date" name="collectionDate" class="form-control input-lg" required/>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="samplePeriod">Sample Period:</label>
+                    <input type="number" name="samplePeriod" class="form-control input-lg" required/>
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="miteCount">Mite Count:</label>
+                    <input type="number" name="miteCount" class="form-control input-lg" required/>
+                </fieldset>
+
+                <button type="submit" class="btn btn-lg btn-primary">Submit Data</button>
+            </form>
+        </div>
+    </div>
+</template>
+
+<template name="allData">
+    <div class="row">
+        <h2>Data:</h2>
+        {{#each beeData}}
+            <p> hiveID: {{hiveID}} | collectionDate: {{collectionDate}} | samplePeriod: {{samplePeriod}} |
+                miteCount: {{miteCount}} | - createdOn: {{createdOn}}</p>
+        {{/each}}
+    </div>
+</template>
+
+<template name="singleData">
+    <div class="row">
+        <h2>Data:</h2>
+        {{#each hiveData}}
+            <p> hiveID: {{hiveID}} | collectionDate: {{collectionDate}} | samplePeriod: {{samplePeriod}} |
+                miteCount: {{miteCount}} | - createdOn: {{createdOn}}</p>
+        {{/each}}
+    </div>
+</template>
